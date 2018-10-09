@@ -48,34 +48,54 @@ def battle():
 
     while True:
 
-        print("{} fighers".format(enemyshipamount))
+        print("{} fighters\n{} Bombers\n{} Interceptors\n{} I forgot".format(enemyFighter, enemyBomber, enemyInterceptor, enemyWhatWasThisShipTypeAgain))
         attack = str.lower(input(">> LOG: Displaying enemy fleet, engage which ships? ".format(shipamount)))
-
-        if attack == 'fighters':
+        if aids = True
+        if aids == True:
             clearScreen()
             sleep(.5)
 
             print("{} fighters".format(shipamount))
             shipchoice = str.lower(input(">> LOG: Deploy which units? "))
-
-            if shipchoice == 'fighters':
-
+            bigboi = True
+            
+            if bigboi == True:
+                
                 advantage = enemyshipamount - shipamount
                 shipwin -= advantage
-
+                # Calculating damage bonus here:
+                damageBost = 1
+                if attack == 'fighters':
+                    if shipchoice == 'bombers':
+                        damageBost = 2
+                if attack == 'interceptors':
+                    if shipchoice == 'fighters':
+                        damageBost = 2
+                if attack == 'bombers':
+                    if shipchoice == 'forgot';
+                        damageBost = 2
 
                 if shipwin in range(95, 106):
 
                     win = random.randrange(0, 11)
 
                     if win in [0, 1, 2]:
+                         #implementing damage bonus by mutiplying dmage bonus by normal total
                         print("Deploying...")
                         sleep(1)
                         clearScreen()
-                        lostmax = int(shipamount / 1.1 + 1)
+                        lostmax = int((shipamount / 1.1 + 1))
+                        lostmax2 = int((shipamount / 1.1 + 1)*damageBost)
                         lost = random.randrange(0, lostmax)
+                        lost2 = random.randrange(0, lostmax2)
                         shipamount -= lost
-                        print(">> LOG: Your fighters destroyed the enemy fleet, you lost {} fighters".format(lost))
+                        if damageBost != 1:
+                            shipamount += lost
+                            shipamount -= lost2
+                        print("You lost {} ships".format(lost))
+                        if damageBost != 1:
+                            print("DAMAGE BONUS: {}".format(lost2))
+                        print(">> LOG: Your fighters destroyed the enemy fleet, you have {} fighters".format(shipamount))
                         a = input("Press enter to continue... ")
                         clearScreen()
                         sleep(.5)
@@ -85,6 +105,20 @@ def battle():
                         sleep(1)
                         clearScreen()
                         lostmax = int((shipamount / 1.6) + 1)
+                        lostmax2 = int((shipamount / 1.6 + 1)*damageBost)
+                        lost = random.randrange(0, lostmax)
+                        lost2 = random.randrange(0, lostmax2)
+                        shipamount -= lost
+                        if damageBost != 1:
+                            shipamount += lost
+                            shipamount -= lost2
+                        print("You lost {} ships".format(lost))
+                        if damageBost != 1:
+                            print("DAMAGE BONUS: {}".format(lost2))
+                        print(">> LOG: Your fighters destroyed the enemy fleet, you have {} fighters".format(shipamount))
+                        a = input("Press enter to continue... ")
+                        clearScreen()
+                        sleep(.5)
                         lost = random.randrange(0, lostmax)
                         shipamount -= lost
                         print(">> LOG: Your fighters destroyed the enemy fleet, you lost {} fighters".format(lost))
@@ -98,6 +132,20 @@ def battle():
                         sleep(1)
                         clearScreen()
                         lostmax = int((shipamount / 3) + 1)
+                        lostmax2 = int((shipamount / 30 + 1) * damageBost)
+                        lost = random.randrange(0, lostmax)
+                        lost2 = random.randrange(0, lostmax2)
+                        shipamount -= lost
+                        if damageBost != 1:
+                            shipamount += lost
+                            shipamount -= lost2
+                        print("You lost {} ships".format(lost))
+                        if damageBost != 1:
+                            print("DAMAGE BONUS: {}".format(lost2))
+                        print(">> LOG: Your fighters destroyed the enemy fleet, you have {} fighters".format(shipamount))
+                        a = input("Press enter to continue... ")
+                        clearScreen()
+                        sleep(.5)
                         lost = random.randrange(0, lostmax)
                         shipamount -= lost
                         print(">> LOG: Your fighters destroyed the enemy fleet, you lost {} fighters".format(lost))
@@ -112,6 +160,7 @@ def battle():
                         clearScreen()
                         print(">> LOG: Your fighters have been destroyed! ")
                         enemylostmin = int(enemyshipamount / 2.5)
+                        enemylostmin2 = int((enemyshipamount / 2.5) * damageBost)
                         enemylost = random.randrange(enemylostmin, 11)
                         enemyshipamount -= enemylost
                         print(">> LOG: The enemy fleet lost {} fighters".format(enemylost))
@@ -119,7 +168,7 @@ def battle():
                         a = input("Press enter to continue... ")
                         clearScreen()
                         sleep(.5)
-
+                        # You get the idea.
 
                 if shipwin in range(105, 126):
 

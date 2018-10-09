@@ -1,10 +1,20 @@
+# This is not finished! I will get back to this
+
 import os
 from time import sleep
 import random
 
+# Editor: Owen Cochell
+# Added random ship ammount, and(hopefully) support for all ship types
 
 shipwin = 100
+enemyFighter = random.randrange(0, 100)
+enemyBomber = random.randrange(0, 100)
+enemyInterceptor = random.randrange(0, 100)
 
+# Forgot other ship type here, lol
+# Will change variable name appropriately once I remember the name/type
+enemyWhatWasThisShipTypeAgain = random.randrange(0, 100)
 
 def clearScreen():
 
@@ -13,8 +23,13 @@ def clearScreen():
 
 
 def battle():
-
-    global shipwin
+    # !VERY BAD PRACTICE!
+    # using global variables is a SIN
+    # Very good reason why global variables are evil here:
+    # https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil
+    # generaly frowned upon in practice, but will be used here for the sake of example:
+    
+    global shipwin, enemyFighter, enemyBomber, enemyInterceptor, enemyWhatWasThisShipTypeAgain
 
     print(">> LOG: Enemy ships detected! ")
     a = input("Press enter to continue... ")
@@ -24,9 +39,9 @@ def battle():
     sleep(1.5)
     clearScreen()
     sleep(.5)
-    enemyshipamount = 10
-    shipamount = 20
-    print(">> LOG: Scan shows fleet contains {} fighters".format(enemyshipamount))
+    # Giving player fighters only, for sake of simplicity
+    playerFighter = 20
+    print(">> LOG: Scan shows fleet contains: \n{} fighters\n{} Bombers\n{} Interceptors\n{} I forgot".format(enemyFighter, enemyBomber, enemyInterceptor, enemyWhatWasThisShipTypeAgain))
     a = input("Press enter to continue... ")
     clearScreen()
     sleep(.5)

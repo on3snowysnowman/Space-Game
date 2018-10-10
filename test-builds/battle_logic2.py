@@ -1,5 +1,3 @@
-# This is not finished! I will get back to this
-
 import os
 from time import sleep
 import random

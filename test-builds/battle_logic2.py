@@ -14,6 +14,8 @@ enemyInterceptor = random.randrange(0, 100)
 # Will change variable name appropriately once I remember the name/type
 enemyWhatWasThisShipTypeAgain = random.randrange(0, 100)
 
+enemyshipamount = enemyFighter + enemyBomber + enemyInterceptor + enemyWhatWasThisShipTypeAgain
+shipamount = 209999999
 def clearScreen():
 
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -27,7 +29,7 @@ def battle():
     # https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil
     # generaly frowned upon in practice, but will be used here for the sake of example:
     
-    global shipwin, enemyFighter, enemyBomber, enemyInterceptor, enemyWhatWasThisShipTypeAgain
+    global shipwin, enemyFighter, enemyBomber, enemyInterceptor, enemyWhatWasThisShipTypeAgain, enemyshipamount, shipamount
 
     print(">> LOG: Enemy ships detected! ")
     a = input("Press enter to continue... ")
@@ -47,8 +49,9 @@ def battle():
     while True:
 
         print("{} fighters\n{} Bombers\n{} Interceptors\n{} I forgot".format(enemyFighter, enemyBomber, enemyInterceptor, enemyWhatWasThisShipTypeAgain))
-        attack = str.lower(input(">> LOG: Displaying enemy fleet, engage which ships? ".format(shipamount)))
-        if aids = True
+        attack = str.lower(input(">> LOG: Displaying enemy fleet, engage which ships? "))
+        aids = True
+        
         if aids == True:
             clearScreen()
             sleep(.5)
@@ -70,7 +73,7 @@ def battle():
                     if shipchoice == 'fighters':
                         damageBost = 2
                 if attack == 'bombers':
-                    if shipchoice == 'forgot';
+                    if shipchoice == 'forgot':
                         damageBost = 2
 
                 if shipwin in range(95, 106):

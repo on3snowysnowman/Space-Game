@@ -16,7 +16,6 @@ class ship:
         self.bomberDmg = bomberDmg
         self.interceptorDmg = interceptorDmg
         self.freighterDmg = freighterDmg
-
 #Ships
 
 fighter = ship(10, "Fighter", 10, 10, 10, 10)
@@ -29,7 +28,7 @@ freighter = ship(500, "Freighter", 50, 20, 40, 50)
 
 #Enemy Ship Lists
 
-enemyFighters = [fighter, fighter, fighter, fighter, fighter, fighter, fighter, fighter, fighter, fighter, fighter, fighter]
+enemyFighters = [fighter, fighter, fighter, fighter, fighter, fighter, fighter, fighter, fighter, fighter]
 
 enemyBombers = [bomber, bomber, bomber, bomber, bomber, bomber, bomber, bomber, bomber, bomber]
 
@@ -97,7 +96,6 @@ def healthCount():
 
         playerFreightersHealth.append(freighter.health)
 
-
     for i in range(0, len(enemyFighters)):
 
         enemyFightersHealth.append(fighter.health)
@@ -123,6 +121,9 @@ def healthClear():
     print(enemyFightersHealth)
     enemyFightersHealth = [x for x in enemyFightersHealth if x > 0]
     print(enemyFightersHealth)
+    print(playerFightersHealth)
+    playerFightersHealth = [x for x in playerFightersHealth if x > 0]
+    print(playerFightersHealth)
 
     
 
@@ -143,7 +144,7 @@ def battle():
 
         #Player chooses a ship to attack
         playerAttack = str.lower(input("Choose a ship to attack: "))
-
+                            
         if playerAttack in ["fighter", "fighters"]:
 
             shipChoice = str.lower(input("What ships will you deploy? "))
@@ -156,9 +157,12 @@ def battle():
                 try:
                       
                     for i in range(0, len(enemyFightersHealth)):
-                    
+
                         ranNum = random.uniform(0.5, 1.6)
                         enemyFightersHealth[i] -= int(playerFighters[i].fighterDmg * ranNum)
+
+                        ranNum = random.uniform(0.5, 1.6)
+                        playerFightersHealth[i] -= int(enemyFighters[i].fighterDmg * ranNum)
                       
 
                 except Exception:
@@ -167,6 +171,9 @@ def battle():
 
                         ranNum = random.uniform(0.5, 1.6)
                         enemyFightersHealth[i + len(enemyFightersHealth) - 1] -= int(playerFighters[i].fighterDmg * ranNum)
+
+                        ranNum = random.uniform(0.5, 1.6)
+                        playerFightersHealth[i + len(playerFightersHealth) - 1] -= int(enemyFightersp[i].fighterDmg * ranNum) 
 
                         break
 

@@ -1,0 +1,42 @@
+from time import sleep
+import multiprocessing
+import os
+
+amount = 5
+fighters = []
+
+def fighterMaker(q):
+
+    global amount
+
+    list = []
+
+    for i in range(0, 5):
+
+        list.append("fighter")
+        sleep(1)
+
+    print("Your fighters are built!")
+    q.put(list)
+    
+    
+    
+    
+
+if __name__ == "__main__":
+
+
+    q = multiprocessing.Queue()
+    fighterBuild = multiprocessing.Process(target = fighterMaker, args = (q,))    
+    fighterBuild.start()
+
+    print("Your fighters are being built")
+
+    while True:
+
+        playerinput = input("Commands?")
+
+        if playerinput == "display":
+
+            fighters = q.get()
+            print(fighters)
